@@ -1,0 +1,38 @@
+
+<div style="text-align:center">
+<p id="notice"><%= notice %></p>
+<h1>Books</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Published Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @landing_pages.each do |landing_page| %>
+      <tr>
+        <td><%= landing_page.title %></td>
+        <td><%= landing_page.author %></td>
+        <td><%= landing_page.genre %></td>
+        <td><%= landing_page.price %></td>
+        <td><%= landing_page.publishedDate %></td>
+        <td><%= link_to 'Show Book Information', landing_page %></td>
+        <td><%= link_to 'Edit Book Details', edit_landing_page_path(landing_page) %></td>
+        <td><%= link_to 'Delete Book', landing_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Book!', new_landing_page_path %>
+
+</div>
